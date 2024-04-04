@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f5f1fe;
+        margin-top: 50px;
+      }
+      h1 {
+        font-family: outfit;
+      }
+      h2 {
+        position: relative;
+        right: -400px;
+        top: -110px;
+        font-family: outfit;
+        font-size: 50px;
+      }
+      p {
+        font-family: sans-serif;
+        color: gray;
+      }
+
+      #city {
+        text-align: center;
+        width: 400px;
+        height: 49px;
+        background-color: #f5f1fe;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        margin: 0px 0px 45px 15px;
+      }
+      .Search {
+        background-color: #8a5df0;
+        color: white;
+        border: none;
+        width: 75px;
+        height: 50px;
+        border-radius: 5px;
+        margin-top: 2px;
+      }
+      .days {
+        display: flex;
+        justify-content: space-around;
+        font-size: 15px;
+        font-family: comfortaa;
+        margin-top: -75px;
+        margin-bottom: 30px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: auto;
+        border: transparent;
+        box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.1);
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      .Humidity {
+        color: red;
+      }
+      .windSpeed {
+        color: red;
+      }
+    </style>
+  </head>
+  <div class="container">
+    <body>
+      <form>
+        <input type="text" placeholder="Search for a city" id="city" />
+        <input type="submit" value="Search" class="Search" />
+      </form>
+      <h1>Cape Town</h1>
+      <p><span id="time"> Saturday 15:32</span>, moderate rain</p>
+      <p>
+        Humidity: <span class="Humidity"><strong>87&deg;</strong></span
+        >, Wind:
+        <span class="windSpeed"><strong>7.2km/h</strong></span>
+      </p>
+      <h2>☁️ 14&deg C</h2>
+      <ul class="days">
+        <ui>
+          Sat
+          <br />
+          ☁️
+          <br />
+          <strong>15&deg;</strong>12&deg;
+        </ui>
+        <br />
+        <ui>
+          Sun
+          <br />
+          ☁️
+          <br />
+          <strong>16&deg;</strong>13&deg;
+        </ui>
+        <br />
+        <ui
+          >Mon
+          <br />
+          ☁️
+          <br />
+          <strong>13&deg;</strong>11&deg;
+        </ui>
+        <br />
+        <ui
+          >Tues
+          <br />
+          ☁️
+          <br />
+          <strong>16&deg;</strong>11&deg;
+        </ui>
+        <br />
+        <ui
+          >Wed
+          <br />
+          ☁️
+          <br />
+          <strong>14&deg;</strong>12&deg;
+        </ui>
+      </ul>
+      <p>This project was coded by <a href="">Nondumiso Nethononda</a></p>
+
+      <script>
+        let now = new Date();
+        let days = [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ];
+        let day = days[now.getDay()];
+        let hour = now.getHours();
+        let minute = now.getMinutes();
+        let time = document.querySelector("#time");
+        time.innerHTML = `${day} ${hour}:${minute}`;
+
+        function searching(event) {
+          event.preventDefault();
+          let searchInput = document.querySelector("#city");
+
+          let h1 = document.querySelector("h1");
+          h1.innerHTML = `${searchInput.value}`;
+        }
+        let form = document.querySelector("form");
+        form.addEventListener("submit", searching);
+      </script>
+    </body>
+  </div>
+</html>
